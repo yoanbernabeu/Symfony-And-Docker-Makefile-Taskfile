@@ -6,7 +6,7 @@ silent: true
 
 vars:
   GREETING: "Hello, Welcome to Symfony And Docker Taskfile !"
-  PWD: pwd
+  PWD: $PWD
   DOCKER: docker
   DOCKER_RUN: "{{.DOCKER}} run"
   DOCKER_COMPOSE: docker compose
@@ -215,7 +215,7 @@ tasks:
     desc: "Lint Doctrine schema"
     cmds:
       - "{{.SYMFONY_CONSOLE}} doctrine:schema:validate --skip-sync -vvv --no-interaction"
-
+  
   tests:
     desc: "Run tests"
     cmds:
