@@ -28,7 +28,7 @@ vars:
   NPM_WATCH: "{{.NPM}} run watch"
   PHPQA: jakzal/phpqa
   PHPQA_RUN: "{{.DOCKER_RUN}} --init -it --rm -v {{.PWD}}:/project -w /project {{.PHPQA}}"
-  PHPUNIT: "APP_ENV=test {{.SYMFONY}} php bbin/phpunit"
+  PHPUNIT: "APP_ENV=test {{.SYMFONY}} php bin/phpunit"
 
 tasks:
   default:
@@ -242,6 +242,7 @@ tasks:
   first-install:
     desc: "First install"
     cmds:
+      - task: docker-up
       - task: composer-install
       - task: npm-install
       - task: npm-build

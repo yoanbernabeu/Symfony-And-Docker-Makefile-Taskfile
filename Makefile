@@ -229,6 +229,7 @@ before-commit: ## Run before commit.
 .PHONY: before-commit
 
 first-install: ## First install.
+	$(MAKE) docker-up
 	$(MAKE) composer-install
 	$(MAKE) npm-install
 	$(MAKE) npm-build
