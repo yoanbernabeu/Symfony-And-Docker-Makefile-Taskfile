@@ -46,7 +46,7 @@ make -v
 You just need to add the file `Makefile` to the root of your Symfony project
 
 ```bash
-wget https://raw.githubusercontent.com/yoanbernabeu/Symfony-And-Docker-Makefile/main/Makefile
+wget https://raw.githubusercontent.com/yoanbernabeu/Symfony-And-Docker-Makefile-Taskfile/main/Makefile
 ```
 
 ###  2.3. <a name='UsageExamples'></a>Usage/Examples
@@ -82,7 +82,7 @@ task --version
 You just need to add the file `Taskfile.yaml` to the root of your Symfony project
 
 ```bash
-wget https://raw.githubusercontent.com/yoanbernabeu/Symfony-And-Docker-Makefile/main/Taskfile.yaml
+wget https://raw.githubusercontent.com/yoanbernabeu/Symfony-And-Docker-Makefile-Taskfile/main/Taskfile.yaml
 ```
 
 ###  3.3. <a name='UsageExamples-1'></a>Usage/Examples
