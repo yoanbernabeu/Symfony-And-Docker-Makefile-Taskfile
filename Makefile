@@ -45,7 +45,7 @@ PHPUNIT = APP_ENV=test $(SYMFONY) php bin/phpunit
 #------------#
 #---------------------------------------------#
 
-#---HELP--------------------------------------#
+## === 🆘  HELP ==================================================
 help: ## Show this help.
 	@echo "Symfony-And-Docker-Makefile"
 	@echo "---------------------------"
@@ -55,7 +55,7 @@ help: ## Show this help.
 	@grep -E '(^[a-zA-Z0-9_-]+:.*?##.*$$)|(^##)' $(MAKEFILE_LIST) | awk 'BEGIN {FS = ":.*?## "}{printf "\033[32m%-30s\033[0m %s\n", $$1, $$2}' | sed -e 's/\[32m##/[33m/'
 #---------------------------------------------#
 
-#---DOCKER------------------------------------#
+## === 🐋  DOCKER ================================================
 docker-up: ## Start docker containers.
 	$(DOCKER_COMPOSE_UP)
 .PHONY: docker-up
@@ -65,7 +65,7 @@ docker-stop: ## Stop docker containers.
 .PHONY: docker-stop
 #---------------------------------------------#
 
-#---SYMFONY-----------------------------------#
+## === 🎛️  SYMFONY ===============================================
 sf-start: ## Start symfony server.
 	$(SYMFONY_SERVER_START)
 .PHONY: sf-start
@@ -123,7 +123,7 @@ sf-open: ## Open symfony server.
 .PHONY: sf-open
 #---------------------------------------------#
 
-#---COMPOSER----------------------------------#
+## === 📦  COMPOSER ==============================================
 composer-install: ## Install composer dependencies.
 	$(COMPOSER_INSTALL)
 .PHONY: composer-install
@@ -133,7 +133,7 @@ composer-update: ## Update composer dependencies.
 .PHONY: composer-update
 #---------------------------------------------#
 
-#---NPM---------------------------------------#
+## === 📦  NPM ===================================================
 npm-install: ## Install npm dependencies.
 	$(NPM_INSTALL)
 .PHONY: npm-install
@@ -155,7 +155,7 @@ npm-watch: ## Watch assets.
 .PHONY: npm-watch
 #---------------------------------------------#
 
-#---PHPQA-------------------------------------#
+## === 🐛  PHPQA =================================================
 qa-cs-fixer-dry-run: ## Run php-cs-fixer in dry-run mode.
 	$(PHPQA_RUN) php-cs-fixer fix ./src --rules=@Symfony --verbose --dry-run
 .PHONY: qa-cs-fixer-dry-run
@@ -197,7 +197,7 @@ qa-lint-schema: ## Lint Doctrine schema.
 .PHONY: qa-lint-schema
 #---------------------------------------------#
 
-#---TEST--------------------------------------#
+## === 🔎  TESTS =================================================
 tests: ## Run tests.
 	$(PHPUNIT) --testdox
 .PHONY: tests
@@ -207,7 +207,7 @@ tests-coverage: ## Run tests with coverage.
 .PHONY: tests-coverage
 #---------------------------------------------#
 
-#---OTHER-------------------------------------#
+## === ⭐  OTHER =================================================
 before-commit: ## Run before commit.
 	$(MAKE) qa-cs-fixer
 	$(MAKE) qa-phpstan
