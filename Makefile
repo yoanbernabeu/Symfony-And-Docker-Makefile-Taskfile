@@ -83,11 +83,11 @@ sf-log: ## Show symfony logs.
 .PHONY: sf-log
 
 sf-dc: ## Create symfony database.
-	$(SYMFONY_CONSOLE) doctrine:database:create
+	$(SYMFONY_CONSOLE) doctrine:database:create --if-not-exists
 .PHONY: sf-dc
 
 sf-dd: ## Drop symfony database.
-	$(SYMFONY_CONSOLE) doctrine:database:drop --force
+	$(SYMFONY_CONSOLE) doctrine:database:drop --if-exists --force
 .PHONY: sf-dd
 
 sf-mm: ## Make migrations.
@@ -96,7 +96,11 @@ sf-mm: ## Make migrations.
 
 sf-dmm: ## Migrate.
 	$(SYMFONY_CONSOLE) doctrine:migrations:migrate --no-interaction
-.PHONY: sf-m
+.PHONY: sf-dmm
+
+sf-fixtures: ## Load fixtures.
+	$(SYMFONY_CONSOLE) doctrine:fixtures:load --no-interaction
+.PHONY: sf-fixtures
 
 sf-perm: ## Fix permissions.
 	chmod -R 777 var
@@ -121,6 +125,10 @@ sf-dump-routes: ## Dump routes.
 sf-open: ## Open symfony server.
 	$(SYMFONY) open:local
 .PHONY: sf-open
+
+sf-check-requirements: ## Check requirements.
+	$(SYMFONY) check:requirements
+.PHONY: sf-check-requirements
 #---------------------------------------------#
 
 ## === 📦  COMPOSER ==============================================
