@@ -1,6 +1,6 @@
-# Symfony And Docker Makefile (+Taskfile)
+# Symfony And Docker Makefile +Taskfile
 
-A Makefile (and Taskfile) to improve the DX of your Symfony projects!
+A Makefile and Taskfile to improve the DX of your Symfony projects!
 
 You will find a collection of everyday useful commands in a Symfony project.
 
