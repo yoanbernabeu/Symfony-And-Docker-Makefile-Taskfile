@@ -53,4 +53,4 @@ If you discover a potential security issue in this project we ask that you notif
 
 ## Licensing
 
-See the [LICENCE](LICENCE) file for our project's licensing. We will ask you to confirm the licensing of your contribution.
+See the [LICENSE](LICENSE) file for our project's licensing. We will ask you to confirm the licensing of your contribution.
