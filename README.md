@@ -6,6 +6,8 @@ You will find a collection of everyday useful commands in a Symfony project.
 
 Feel free to modify it for your projects.
 
+![Symfony And Docker Makefile + Taskfile](screenshot.gif)
+
 ##  1. <a name='TableofContents'></a>Table of Contents
 
 <!-- vscode-markdown-toc -->
