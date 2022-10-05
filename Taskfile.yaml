@@ -141,6 +141,16 @@ tasks:
     cmds:
       - "{{.COMPOSER_UPDATE}}"
 
+  composer-validate:
+    desc: Validate composer.json file.
+    cmds:
+      - "{{.COMPOSER}} validate"
+
+  composer-validate-deep:
+    desc: Validate composer.json and composer.lock files in strict mode.
+    cmds:
+      - "{{.COMPOSER}} validate --strict --check-lock"
+
   npm-install:
     desc: "Install npm dependencies"
     cmds:
