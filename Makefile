@@ -216,39 +216,16 @@ tests-coverage: ## Run tests with coverage.
 #---------------------------------------------#
 
 ## === ⭐  OTHER =================================================
-before-commit: ## Run before commit.
-	$(MAKE) qa-cs-fixer
-	$(MAKE) qa-phpstan
-	$(MAKE) qa-security-checker
-	$(MAKE) qa-phpcpd
-	$(MAKE) qa-lint-twigs
-	$(MAKE) qa-lint-yaml
-	$(MAKE) qa-lint-container
-	$(MAKE) qa-lint-schema
-	$(MAKE) tests
+before-commit: qa-cs-fixer qa-phpstan qa-security-checker qa-phpcpd qa-lint-twigs qa-lint-yaml qa-lint-container qa-lint-schema tests ## Run before commit.
 .PHONY: before-commit
 
-first-install: ## First install.
-	$(MAKE) docker-up
-	$(MAKE) composer-install
-	$(MAKE) npm-install
-	$(MAKE) npm-build
-	$(MAKE) sf-perm
-	$(MAKE) sf-dc
-	$(MAKE) sf-dmm
-	$(MAKE) sf-start
-	$(MAKE) sf-open
+first-install: docker-up composer-install npm-install npm-build sf-perm sf-dc sf-dmm sf-start sf-open ## First install.
 .PHONY: first-install
 
-start: ## Start project.
-	$(MAKE) docker-up
-	$(MAKE) sf-start
-	$(MAKE) sf-open
+start: docker-up sf-start sf-open ## Start project.
 .PHONY: start
 
-stop: ## Stop project.
-	$(MAKE) docker-stop
-	$(MAKE) sf-stop
+stop: docker-stop sf-stop ## Stop project.
 .PHONY: stop
 
 reset-db: ## Reset database.
