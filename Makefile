@@ -66,6 +66,10 @@ docker-stop: ## Stop docker containers.
 #---------------------------------------------#
 
 ## === 🎛️  SYMFONY ===============================================
+sf: ## List and Use All Symfony commands (make sf command="commande-name").
+	$(SYMFONY_CONSOLE) $(command)
+.PHONY: sf
+
 sf-start: ## Start symfony server.
 	$(SYMFONY_SERVER_START)
 .PHONY: sf-start
