@@ -139,6 +139,14 @@ composer-install: ## Install composer dependencies.
 composer-update: ## Update composer dependencies.
 	$(COMPOSER_UPDATE)
 .PHONY: composer-update
+
+composer-validate: ## Validate composer.json file.
+	$(COMPOSER) validate
+.PHONY: composer-validate
+
+composer-validate-deep: ## Validate composer.json and composer.lock files in strict mode.
+	$(COMPOSER) validate --strict --check-lock
+.PHONY: composer-validate-deep
 #---------------------------------------------#
 
 ## === 📦  NPM ===================================================
