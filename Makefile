@@ -130,6 +130,10 @@ sf-open: ## Open symfony server.
 	$(SYMFONY) open:local
 .PHONY: sf-open
 
+sf-open-email: ## Open Email catcher.
+	$(SYMFONY) open:local:webmail
+.PHONY: sf-open-email
+
 sf-check-requirements: ## Check requirements.
 	$(SYMFONY) check:requirements
 .PHONY: sf-check-requirements
