@@ -81,6 +81,11 @@ tasks:
     cmds:
       - "{{.SYMFONY_CONSOLE}} doctrine:database:drop --if-exists --force"
     
+  sf-dc:
+    desc: "Update symfony schema database"
+    cmds:
+      - "{{.SYMFONY_CONSOLE}} doctrine:schema:update --force"  
+
   sf-mm:
     desc: "Make symfony migration"
     cmds:
@@ -95,7 +100,22 @@ tasks:
     desc: "Load fixtures"
     cmds:
       - "{{.SYMFONY_CONSOLE}} doctrine:fixtures:load --no-interaction"
-    
+
+  sf-me:
+    desc: "Make entity"
+    cmds:
+      - "{{.SYMFONY_CONSOLE}} make:entity"  
+
+  sf-mc:
+    desc: "Make controller"
+    cmds:
+      - "{{.SYMFONY_CONSOLE}} make:controller"  
+
+  sf-mf:
+    desc: "Make form"
+    cmds:
+      - "{{.SYMFONY_CONSOLE}} make:form"  
+
   sf-perm:
     desc: "Fix permissions"
     cmds:
