@@ -219,6 +219,10 @@ qa-lint-container: ## Lint container.
 qa-lint-schema: ## Lint Doctrine schema.
 	$(SYMFONY_CONSOLE) doctrine:schema:validate --skip-sync -vvv --no-interaction
 .PHONY: qa-lint-schema
+
+qa-audit: ## Run composer audit.
+	$(COMPOSER) audit
+.PHONY: qa-audit
 #---------------------------------------------#
 
 ## === 🔎  TESTS =================================================
