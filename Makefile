@@ -126,7 +126,7 @@ sf-dump-routes: ## Dump routes.
 	$(SYMFONY_CONSOLE) debug:router
 .PHONY: sf-dump-routes
 
-sf-open: ## Open symfony server.
+sf-open: ## Open project in a browser.
 	$(SYMFONY) open:local
 .PHONY: sf-open
 
@@ -235,7 +235,7 @@ tests-coverage: ## Run tests with coverage.
 .PHONY: tests-coverage
 #---------------------------------------------#
 
-## === ⭐  OTHER =================================================
+## === ⭐  OTHERS =================================================
 before-commit: qa-cs-fixer qa-phpstan qa-security-checker qa-phpcpd qa-lint-twigs qa-lint-yaml qa-lint-container qa-lint-schema tests ## Run before commit.
 .PHONY: before-commit
 
