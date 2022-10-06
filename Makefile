@@ -110,6 +110,18 @@ sf-fixtures: ## Load fixtures.
 	$(SYMFONY_CONSOLE) doctrine:fixtures:load --no-interaction
 .PHONY: sf-fixtures
 
+sf-me: ## Make symfony entity
+	$(SYMFONY_CONSOLE) make:entity
+.PHONY: sf-me
+
+sf-mc: ## Make symfony controller
+	$(SYMFONY_CONSOLE) make:controller
+.PHONY: sf-mc
+
+sf-mf: ## Make symfony Form
+	$(SYMFONY_CONSOLE) make:form
+.PHONY: sf-mf
+
 sf-perm: ## Fix permissions.
 	chmod -R 777 var
 .PHONY: sf-perm
