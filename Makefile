@@ -94,6 +94,10 @@ sf-dd: ## Drop symfony database.
 	$(SYMFONY_CONSOLE) doctrine:database:drop --if-exists --force
 .PHONY: sf-dd
 
+sf-su: ## Update symfony schema database.
+	$(SYMFONY_CONSOLE) doctrine:schema:update --force
+.PHONY: sf-su
+
 sf-mm: ## Make migrations.
 	$(SYMFONY_CONSOLE) make:migration
 .PHONY: sf-mm

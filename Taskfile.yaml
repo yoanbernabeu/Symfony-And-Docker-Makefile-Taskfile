@@ -81,6 +81,11 @@ tasks:
     cmds:
       - "{{.SYMFONY_CONSOLE}} doctrine:database:drop --if-exists --force"
     
+  sf-dc:
+    desc: "Update symfony schema database"
+    cmds:
+      - "{{.SYMFONY_CONSOLE}} doctrine:schema:update --force"  
+      
   sf-mm:
     desc: "Make symfony migration"
     cmds:
