@@ -7,7 +7,7 @@
 #---DOCKER---#
 DOCKER = docker
 DOCKER_RUN = $(DOCKER) run
-DOCKER_COMPOSE = docker compose
+DOCKER_COMPOSE = docker-compose
 DOCKER_COMPOSE_UP = $(DOCKER_COMPOSE) up -d
 DOCKER_COMPOSE_STOP = $(DOCKER_COMPOSE) stop
 #------------#
