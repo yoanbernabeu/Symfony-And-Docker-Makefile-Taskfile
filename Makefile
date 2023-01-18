@@ -21,7 +21,7 @@ SYMFONY_LINT = $(SYMFONY_CONSOLE) lint:
 #------------#
 
 #---COMPOSER-#
-COMPOSER = composer
+COMPOSER = $(SYMFONY) composer
 COMPOSER_INSTALL = $(COMPOSER) install
 COMPOSER_UPDATE = $(COMPOSER) update
 #------------#
