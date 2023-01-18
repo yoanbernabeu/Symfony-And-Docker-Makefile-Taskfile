@@ -17,7 +17,7 @@ vars:
   SYMFONY_SERVER_STOP: "{{.SYMFONY}} server:stop"
   SYMFONY_CONSOLE: "{{.SYMFONY}} console"
   SYMFONY_LINT: "{{.SYMFONY_CONSOLE}} lint:"
-  COMPOSER: composer
+  COMPOSER: "{{.SYMFONY}} composer"
   COMPOSER_INSTALL: "{{.COMPOSER}} install"
   COMPOSER_UPDATE: "{{.COMPOSER}} update"
   NPM: npm
