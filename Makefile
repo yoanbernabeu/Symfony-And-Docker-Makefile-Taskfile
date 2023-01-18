@@ -153,6 +153,27 @@ sf-open-email: ## Open Email catcher.
 sf-check-requirements: ## Check requirements.
 	$(SYMFONY) check:requirements
 .PHONY: sf-check-requirements
+
+sf-generate-keys: ## Generate public and private keys for current environment
+	$(SYMFONY_CONSOLE) secret:generate-keys
+.PHONY: sf-generate-keys
+
+sf-generate-all-keys: ## Generate keys for dev and prod environments
+	APP_RUNTIME_ENV=dev $(MAKE) sf-generate-keys && APP_RUNTIME_ENV=prod $(MAKE) sf-generate-keys
+.PHONY: sf-generate-all-keys
+
+sf-rotate-keys: ## Generate a new decrypt key for current environment
+	$(SYMFONY_CONSOLE) secret:generate-keys --rotate
+.PHONY: sf-rotate-keys
+
+sf-rotate-all-keys: ## Generate new decrypt keys for dev and prod environments
+	APP_RUNTIME_ENV=dev $(MAKE) sf-rotate-keys && APP_RUNTIME_ENV=prod $(MAKE) sf-rotate-keys
+.PHONY: sf-rotate-all-keys
+
+sf-decrypt: ## Decrypt secrets and add environments variables
+	$(SYMFONY_CONSOLE) secrets:decrypt-to-local --force
+.PHONY: sf-decrypt
+
 #---------------------------------------------#
 
 ## === 📦  COMPOSER ==============================================
@@ -255,7 +276,7 @@ tests-coverage: ## Run tests with coverage.
 before-commit: qa-cs-fixer qa-phpstan qa-security-checker qa-phpcpd qa-lint-twigs qa-lint-yaml qa-lint-container qa-lint-schema tests ## Run before commit.
 .PHONY: before-commit
 
-first-install: docker-up composer-install npm-install npm-build sf-perm sf-dc sf-dmm sf-start sf-open ## First install.
+first-install: docker-up composer-install npm-install npm-build sf-perm sf-dc sf-dmm sf-decrypt sf-start sf-open ## First install.
 .PHONY: first-install
 
 start: docker-up sf-start sf-open ## Start project.
