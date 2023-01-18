@@ -44,7 +44,7 @@ tasks:
   docker-up:
     desc: "Start docker containers"
     cmds:
-      - "{{.DOCKER_COMPOSE_UP}}"
+      - "{{.DOCKER_COMPOSE_UP}}  -d"
     
   docker-stop:
     desc: "Stop docker containers"
@@ -81,7 +81,7 @@ tasks:
     cmds:
       - "{{.SYMFONY_CONSOLE}} doctrine:database:drop --if-exists --force"
     
-  sf-dc:
+  sf-ds:
     desc: "Update symfony schema database"
     cmds:
       - "{{.SYMFONY_CONSOLE}} doctrine:schema:update --force"  
@@ -150,7 +150,34 @@ tasks:
     desc: "Check symfony requirements"
     cmds:
       - "{{.SYMFONY}} check:requirements"
-    
+
+  sf-generate-keys:
+    desc: "Generate public and private keys for current environment"
+    cmds:
+      - "{{.SYMFONY_CONSOLE}} secret:generate-keys"
+
+  sf-generate-all-keys:
+    desc: "Generate keys for dev and prod environments"
+    cmds:
+      - "APP_RUNTIME_ENV=dev {{.SYMFONY_CONSOLE}} secret:generate-keys"
+      - "APP_RUNTIME_ENV=prod {{.SYMFONY_CONSOLE}} secret:generate-keys"
+
+  sf-rotate-keys:
+    desc: "Generate a new decrypt key for current environment"
+    cmds:
+      - "{{.SYMFONY_CONSOLE}} secret:generate-keys --rotate"
+
+  sf-rotate-all-keys:
+    desc: "Generate new decrypt keys for dev and prod environments"
+    cmds:
+      - "APP_RUNTIME_ENV=dev {{.SYMFONY_CONSOLE}} secret:generate-keys --rotate"
+      - "APP_RUNTIME_ENV=prod {{.SYMFONY_CONSOLE}} secret:generate-keys --rotate"
+
+  sf-decrypt:
+    desc: "Decrypt secrets and add environments variables"
+    cmds:
+      - "{{.SYMFONY_CONSOLE}} secrets:decrypt-to-local --force"
+
   composer-install:
     desc: "Install composer dependencies"
     cmds:
@@ -279,13 +306,14 @@ tasks:
       - task: sf-perm
       - task: sf-dc
       - task: sf-dmm
+      - task: sf-decrypt
       - task: sf-start
       - task: sf-open
 
   start:
     desc: "Start"
     cmds:
-      - tasl: docker-up
+      - task: docker-up
       - task: sf-start
       - task: sf-open
 
