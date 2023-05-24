@@ -37,7 +37,7 @@ NPM_WATCH = $(NPM) run watch
 
 #---PHPQA---#
 PHPQA = jakzal/phpqa
-PHPQA_RUN = $(DOCKER_RUN) --init -it --rm -v $(PWD):/project -w /project $(PHPQA)
+PHPQA_RUN = $(DOCKER_RUN) --init -it --rm -v "$(PWD):/project" -w /project $(PHPQA)
 #------------#
 
 #---PHPUNIT-#
