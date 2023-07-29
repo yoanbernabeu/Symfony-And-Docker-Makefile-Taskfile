@@ -285,7 +285,7 @@ tasks:
   start:
     desc: "Start"
     cmds:
-      - tasl: docker-up
+      - task: docker-up
       - task: sf-start
       - task: sf-open
 
